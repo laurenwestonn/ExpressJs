@@ -24,4 +24,11 @@ router.route('/:id')
 	res.send(`Delete User ${req.params.id}`)
 });
 
+// Middleware. Happens after request, and before response
+// To say you're done, you must call the next thing explicitly
+router.param('id', (req, res, next, id) => {
+	console.log('hi');
+	next();
+});
+
 module.exports = router;
