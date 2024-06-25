@@ -6,10 +6,16 @@ const users = [ { name: 'Taylor Swift' }, { name: 'Hayley Williams'} ];
 
 router.route('/')
 	.get( (req, res) => {
-		res.send('User List');
+		res.send(`User List: ${users.map(u => u.name).join()}`);
 	})
 	.post( (req, res) => {
-		res.send(`Create user ${req.body.thisWillGoOnTheBody}`);
+		if (2 + 2 === 4) {
+			users.push({ name: req.body.thisWillGoOnTheBody });
+			res.redirect(`/users/${users.length-1}`);
+		} else {
+			console.log('Error');
+			res.render('users/new', { name: req.body.thisWillGoOnTheBody });
+		}
 	});
 
 router.get('/new', (req, res) => {
@@ -20,7 +26,7 @@ router.get('/new', (req, res) => {
 router.route('/:id')
 .get((req, res) => {
 	console.log(req.user.name); // this was set in the params middleware
-	res.send(`Get the User with ID ${req.params.id}`)
+	res.send(`Get the User with ID ${req.params.id} and name ${users[req.params.id].name}`)
 })
 .put((req, res) => {
 	res.send(`Update the User with ID ${req.params.id}`)
