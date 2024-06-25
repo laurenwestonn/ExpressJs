@@ -11,6 +11,8 @@ app.use(express.static('public'));
 // This middleware allows you to access body e.g. req.body. in a route
 app.use(express.urlencoded({ extended: true }));
 
+// Same thing as url encoded but lets you parse JSON from the body
+app.use(express.json());
 
 const userRouter = require('./routes/users');
 app.use('/users', userRouter);
