@@ -3,6 +3,7 @@ const app = express();
 
 // required to render .ejs files from a folder called "views"
 app.set('view engine', 'ejs');
+app.use(logger); // must be above any routes or wouldnt do anything
 
 
 app.get('/', (req, res) => {	
@@ -11,6 +12,11 @@ app.get('/', (req, res) => {
 
 const userRouter = require('./routes/users');
 app.use('/users', userRouter);
+
+function logger(req, res, next) {
+	console.log(req.originalUrl);
+	next(); // middleware, so must be called to continue
+}
 
 app.listen(1234);
 
