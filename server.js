@@ -3,10 +3,8 @@ const app = express();
 
 // required to render .ejs files from a folder called "views"
 app.set('view engine', 'ejs');
-app.use(logger); // must be above any routes or wouldnt do anything
 
-
-app.get('/', (req, res) => {	
+app.get('/', logger, (req, res) => {	
 	res.render('index', { text: 'World' });
 })
 
