@@ -4,12 +4,16 @@ router.use(logger); // must be above any routes or wouldnt do anything
 
 const users = [ { name: 'Taylor Swift' }, { name: 'Hayley Williams'} ];
 
-router.get('/', (req, res) => {
-	res.send('User List');
-});
+router.route('/')
+	.get( (req, res) => {
+		res.send('User List');
+	})
+	.post( (req, res) => {
+		res.send('Create user');
+	});
 
 router.get('/new', (req, res) => {
-	res.send('New user form');
+	res.render("users/new", { name: 'Lauren' }); // dynamic, so must live in "views" with an .ejs extension
 });
 
 // put dynamic ones last, otherwise never reach specific ones
