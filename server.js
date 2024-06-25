@@ -4,17 +4,12 @@ const app = express();
 // required to render .ejs files from a folder called "views"
 app.set('view engine', 'ejs');
 
-app.get('/', logger, (req, res) => {	
+app.get('/', (req, res) => {	
 	res.render('index', { text: 'World' });
 })
 
 const userRouter = require('./routes/users');
 app.use('/users', userRouter);
-
-function logger(req, res, next) {
-	console.log(req.originalUrl);
-	next(); // middleware, so must be called to continue
-}
 
 app.listen(1234);
 

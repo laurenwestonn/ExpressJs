@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+router.use(logger); // must be above any routes or wouldnt do anything
 
 const users = [ { name: 'Taylor Swift' }, { name: 'Hayley Williams'} ];
 
@@ -34,5 +35,10 @@ router.param('id', (req, res, next, id) => {
 	req.user = users[id]; // can use this in any id response now! C, R, U and D. Don't have to set it multiple times!
 	next();
 });
+
+function logger(req, res, next) {
+	console.log(req.originalUrl);
+	next(); // middleware, so must be called to continue
+}
 
 module.exports = router;
