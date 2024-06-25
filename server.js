@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 	// Render: 
 	// by default all views live under folder Views, so it must be created
 	// requires a VIEW ENGINE, e.g. ejs, pug
-	res.render('index');
+	res.render('index', { text: 'World' });	// 2nd params allows you to send from server to FE
 
 })
 
