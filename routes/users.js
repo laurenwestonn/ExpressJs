@@ -6,6 +6,7 @@ const users = [ { name: 'Taylor Swift' }, { name: 'Hayley Williams'} ];
 
 router.route('/')
 	.get( (req, res) => {
+		console.log(`Here's the query param for name: ${req.query.name}`);
 		res.send(`User List: ${users.map(u => u.name).join()}`);
 	})
 	.post( (req, res) => {
