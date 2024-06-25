@@ -9,7 +9,7 @@ router.route('/')
 		res.send('User List');
 	})
 	.post( (req, res) => {
-		res.send('Create user');
+		res.send(`Create user ${req.body.thisWillGoOnTheBody}`);
 	});
 
 router.get('/new', (req, res) => {

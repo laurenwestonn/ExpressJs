@@ -8,6 +8,9 @@ app.set('view engine', 'ejs');
 // serve a static html file in a folder. lets call it public.
 app.use(express.static('public'));
 
+// This middleware allows you to access body e.g. req.body. in a route
+app.use(express.urlencoded({ extended: true }));
+
 
 const userRouter = require('./routes/users');
 app.use('/users', userRouter);
