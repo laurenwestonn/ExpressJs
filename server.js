@@ -22,4 +22,13 @@ app.get('/', (req, res) => {
 
 })
 
+app.get('/users', (req, res) => {
+	res.send('User List');
+})
+
+
+app.get('/users/new', (req, res) => {
+	res.send('New user form');
+})
+
 app.listen(1234);
