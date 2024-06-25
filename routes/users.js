@@ -9,6 +9,14 @@ router.post('/', (req, res) => {
 	res.send('Create user');
 })
 
+router.put('/', (req, res) => {
+	res.send('Create user');
+})
+
+router.delete('/', (req, res) => {
+	res.send('Create user');
+})
+
 router.get('/new', (req, res) => {
 	res.send('New user form');
 })
