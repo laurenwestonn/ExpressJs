@@ -4,6 +4,8 @@ const app = express();
 // required to render .ejs files from a folder called "views"
 app.set('view engine', 'ejs');
 
+// not efficient to create a route for something that doesn't ever change
+// serve a static html file in a folder. lets call it public.
 app.get('/', (req, res) => {	
 	res.render('index', { text: 'World' });
 })
