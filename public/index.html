@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+
+
+	<h2>Dynamic pages</h2>
+	This file extension will be <strong>.ejs</strong> and inside of "views" folder
+	<br>
+	Served like this
+	
+	<blockquote>
+		<pre>
+			<code>
+app.get('/', (req, res) => {	
+	res.render('index', { text: 'World' });
+})	
+			</code>
+		</pre>
+	</blockquote>
+
+	Dynamic pages can use data from the server like so:	<code><%=locals.text %></code>
+
+	<br>
+	<br>
+
+	<h2>Static pages</h2>
+	File extension should be <strong>.html</strong> and inside of some folder. we called ours "public"
+	
+	
+	<blockquote>
+		<pre>
+			<code>
+app.use(express.static('public'));
+			</code>
+		</pre>
+	</blockquote>
+
+</body>
+</html>
